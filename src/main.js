@@ -6,7 +6,8 @@ import {
   getFirestore,
   getDocs,
   getDoc,
-  doc
+  doc,
+  arrayRemove
 } from 'firebase/firestore'
 
 // Firebase CONFIG API
@@ -360,9 +361,80 @@ function getTotalRequest(){
 
       
 
-      document.querySelector('#total-request').textContent = totalReq.length;
-      document.querySelector('#total-request-card').textContent = totalReq.length;
+      // document.querySelector('#total-request').textContent = totalReq.length;
+      // document.querySelector('#total-request-card').textContent = totalReq.length;
+
+      // <div class="rounded-lg shadow-lg p-4 bg-white">
+        // <div class="text-xs">
+        //   <span class="text-gray-600 font-medium">Email</span>
+        //   <span id="email-request"></span>
+        // </div>
+        // <div class="mt-4 text-xs">
+        //   <span class="text-gray-600 font-medium">Full Name</span>
+        //   <span id="fullname" class="text-gray-700 font-bold"></span>
+        // </div>
+        // <div class="text-xs">
+        //   <span class="text-gray-600 font-medium">Home Address</span>
+        //   <span id="home-address"></span>
+        // </div>
+        // <div class="mt-4 text-xs">
+        //   <span class="text-gray-600 font-medium">Contact Number</span>
+        //   <span id="contact-request" class="text-gray-700 font-bold"></span>
+        // </div>
+        // <div class="text-xs mt-4">
+        //   <span class="text-gray-700 font-medium">Purpose of Consultation</span>
+        //   <ul class="list-disc ml-4">
+        //     <li>
+        //       <span class="text-gray-600 font-medium" id="purpose"></span>
+        //     </li>
+
+        //   </ul>
+        // </div>
+
+      // </div>
+
+      const requestWrapper = document.getElementById('requests')
+      totalReq.forEach((request) => { 
+        // let purposeList = document.createElement('ul')
+        // purposeList.className = 'ul class="list-disc ml-4'
+        // purposeList.innerHTML = `
+        //   <li>
+        //     <span class="text-gray-600 font-medium" id="purpose">${request.purpose}</span>
+        //   </li>`
+        // purposeItem = request.purpose
+        // console.log(purposeItem)
+      })
       
+      totalReq.forEach((request) => {
+        let requestChild = document.createElement('div');
+        requestChild.className = 'rounded-lg shadow-lg p-4 bg-white'
+        requestChild.innerHTML = `
+        <div class="text-xs">
+          <span class="text-gray-600 font-medium">Email</span>
+          <span id="email-request">${request.email}</span>
+        </div>
+        <div class="mt-4 text-xs">
+          <span class="text-gray-600 font-medium">Full Name</span>
+          <span id="fullname" class="text-gray-700 font-bold">${request.full_name}</span>
+        </div>
+        <div class="text-xs">
+          <span class="text-gray-600 font-medium">Home Address</span>
+          <span id="home-address">${request.home_address}</span>
+        </div>
+        <div class="mt-4 text-xs">
+          <span class="text-gray-600 font-medium">Contact Number</span>
+          <span id="contact-request" class="text-gray-700 font-bold">${request.contact}</span>
+        </div>
+        <div class="text-xs mt-4">
+          <span class="text-gray-700 font-medium">Purpose of Consultation</span>
+          <ul class="list-disc ml-4">
+            <li>
+              <span class="text-gray-600 font-medium" id="purpose">${request.purpose}</span>
+            </li>
+          </ul>
+        </div>`
+        requestWrapper.appendChild(requestChild)
+      })
      
       
 
@@ -377,4 +449,4 @@ function getTotalRequest(){
 }
 
 
-getTotalRequest() 
+getTotalRequest()
