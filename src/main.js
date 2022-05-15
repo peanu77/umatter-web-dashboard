@@ -61,7 +61,7 @@ function getTotalUsers() {
       let totalUsers = [];
       let temp = [];
       let gender = [];
- 
+
 
 
       snapshot.docs.forEach((doc) => {
@@ -76,23 +76,23 @@ function getTotalUsers() {
       }
 
 
-      
+
 
       let female = [];
       let male = [];
-      
-      for(var x = 0; x<gender.length; x++){ 
 
-        if(gender[x ] === "Male"){
+      for (var x = 0; x < gender.length; x++) {
+
+        if (gender[x] === "Male") {
           male.push(gender[x])
-        }else if(gender[x] === "Female"){
+        } else if (gender[x] === "Female") {
           female.push(gender[x])
-        }else{
+        } else {
           console.log("Please Contact the admin")
         }
       }
 
-      
+
       document.querySelector('#total-users').textContent = totalUsers.length;
       document.querySelector('#total-female').textContent = female.length;
       document.querySelector('#total-male').textContent = male.length;
@@ -147,7 +147,7 @@ function getTotalJournalCreated() {
       // console.log(totalJournals)
       document.querySelector('#total-journals').textContent = totalJournals.length;
       // console.log(totalJournals)
-      
+
     })
     .catch((error) => {
       // console.log(contact)
@@ -189,9 +189,9 @@ function getAssessmentRes() {
         userSelection.push(assessmentRes[i]['user_selection'])
       }
 
-      
+
       for (var x = 0; x <= temp.length; x++) {
-        
+
         if (temp[x] === 'Mild') {
           mild.push(temp[x])
           document.querySelector('#mild').textContent = mild.length
@@ -204,7 +204,7 @@ function getAssessmentRes() {
         } else if (temp[x] === "Severe") {
           severe.push(temp[x]);
           document.querySelector('#severe-depression').textContent = severe.length
-          
+
         }
       }
       let email = [];
@@ -236,21 +236,21 @@ function getAssessmentRes() {
       })
 
       // 
-      for(var n =0; n< userSelection1.length; n++){
+      for (var n = 0; n < userSelection1.length; n++) {
         // console.log(userSelection1[n])
         if (userSelection1[n] === "Not at all") {
-            userSelection2.push(userSelection1[n]) 
-          }else if (userSelection1[n] === "Several days") {
-            userSelection3.push(userSelection1[n]) 
-          }else if (userSelection1[n] === "More than half the days") {
-            userSelection4.push(userSelection1[n]) 
-          }else if (userSelection1[n] === "Nearly Everyday") {
-            userSelection5.push(userSelection1[n]) 
-          }
+          userSelection2.push(userSelection1[n])
+        } else if (userSelection1[n] === "Several days") {
+          userSelection3.push(userSelection1[n])
+        } else if (userSelection1[n] === "More than half the days") {
+          userSelection4.push(userSelection1[n])
+        } else if (userSelection1[n] === "Nearly Everyday") {
+          userSelection5.push(userSelection1[n])
+        }
       }
 
 
-      
+
       const assessment_doughnut = document.getElementById('assessment-doughnut').getContext('2d');
       const doughnutChart = new Chart(assessment_doughnut, {
         type: 'doughnut',
@@ -273,22 +273,22 @@ function getAssessmentRes() {
 
             // ],
           }],
-          
+
         },
         options: {
-          responsive : true,
-          maintainAspectRation : false,
+          responsive: true,
+          maintainAspectRation: false,
           layout: {
-          
+
           }
         }
       });
 
 
 
-     
-      
-      
+
+
+
 
       const assessment_chart = document.getElementById('assessment-chart').getContext('2d');
       const pieChart = new Chart(assessment_chart, {
@@ -314,10 +314,10 @@ function getAssessmentRes() {
           }]
         },
         options: {
-          responsive : true,
-          maintainAspectRation : false,
+          responsive: true,
+          maintainAspectRation: false,
           layout: {
-          
+
           }
         }
       });
@@ -334,68 +334,25 @@ function getAssessmentRes() {
 getAssessmentRes()
 
 
-function getTotalRequest(){
+function getTotalRequest() {
   const ref = collection(db, 'users/counselling/counselling')
   getDocs(ref)
     .then((snapshot) => {
       let totalReq = [];
-      let emailReq =[];
+      let emailReq = [];
       snapshot.docs.forEach((doc) => {
         totalReq.push({
           ...doc.data()
         })
       })
-      // console.log(totalReq);
-
-      //  for(var i =0; i<=totalReq.length; i++){
-      //   // console.log(totalReq[i]['email'])
-      //   // document.querySelector('#email-request').textContent = totalReq[i]['email'];
-      //   // document.querySelector('#fullname').textContent = totalReq[i]['full_name'];
-      //   // document.querySelector('#home-address').textContent = totalReq[i]['home_address'];
-      //   // document.querySelector('#contact-request').textContent = totalReq[i]['contact'];
-      //   // document.querySelector('#purpose').textContent = totalReq[i]['purpose']['academic'];
-        
-      // }
-
-      // var email_req = document.querySelector('#email-request')
-
-      
-
-      // document.querySelector('#total-request').textContent = totalReq.length;
-      // document.querySelector('#total-request-card').textContent = totalReq.length;
-
-      // <div class="rounded-lg shadow-lg p-4 bg-white">
-        // <div class="text-xs">
-        //   <span class="text-gray-600 font-medium">Email</span>
-        //   <span id="email-request"></span>
-        // </div>
-        // <div class="mt-4 text-xs">
-        //   <span class="text-gray-600 font-medium">Full Name</span>
-        //   <span id="fullname" class="text-gray-700 font-bold"></span>
-        // </div>
-        // <div class="text-xs">
-        //   <span class="text-gray-600 font-medium">Home Address</span>
-        //   <span id="home-address"></span>
-        // </div>
-        // <div class="mt-4 text-xs">
-        //   <span class="text-gray-600 font-medium">Contact Number</span>
-        //   <span id="contact-request" class="text-gray-700 font-bold"></span>
-        // </div>
-        // <div class="text-xs mt-4">
-        //   <span class="text-gray-700 font-medium">Purpose of Consultation</span>
-        //   <ul class="list-disc ml-4">
-        //     <li>
-        //       <span class="text-gray-600 font-medium" id="purpose"></span>
-        //     </li>
-
-        //   </ul>
-        // </div>
-
-      // </div>
 
       const requestWrapper = document.getElementById('requests')
-      
+
       totalReq.forEach((request) => {
+        // let purpose = request['purpose'];
+
+        // console.log(request)
+
         let requestChild = document.createElement('div');
         requestChild.className = 'rounded-lg shadow-lg p-4 bg-white'
         requestChild.innerHTML = `
@@ -419,14 +376,22 @@ function getTotalRequest(){
           <span class="text-gray-700 font-medium">Purpose of Consultation</span>
           <ul class="list-disc ml-4">
             <li>
-              <span class="text-gray-600 font-medium" id="purpose">${request.purpose}</span>
+              <span class="text-gray-600 font-medium" id="purpose">${request.purpose['academic']  != '' ? request.purpose['academic'] : "N/A"}</span> 
             </li>
+            <li>
+              <span class="text-gray-600 font-medium" id="purpose">${request.purpose['personal']  != '' ? request.purpose['personal'] : "N/A"}</span>
+            </li>
+            <li>
+              <span class="text-gray-600 font-medium" id="purpose">${request.purpose['career'] != '' ? request.purpose['career'] : "N/A"} </span>
+            </li>
+            <li>
+              <span class="text-gray-600 font-medium" id="purpose">${request.purpose['others'] != '' ? request.purpose['others'] : "N/A"} </span>
+            </li>
+           
           </ul>
         </div>`
         requestWrapper.appendChild(requestChild)
       })
-     
-      
 
     })
     .catch((error) => {
@@ -440,3 +405,213 @@ function getTotalRequest(){
 
 
 getTotalRequest()
+
+
+function getTotalReq() {
+  const ref = collection(db, 'users/counselling/counselling')
+  getDocs(ref).then((snapshot) => {
+    let totalReq = [];
+    snapshot.docs.forEach((doc) => {
+      totalReq.push({
+        ...doc.data()
+      })
+      document.querySelector('#total-request').textContent = totalReq.length;
+      document.querySelector('#total-request-card').textContent = totalReq.length;
+    })
+  }).catch((error) => {
+
+  }).finally(() => {
+
+  })
+}
+
+getTotalReq()
+
+
+function getTotalMild() {
+  const ref = collection(db, 'users/assessment/assessment/')
+  getDocs(ref).then((snapshot) => {
+    let mildTotal = [];
+    snapshot.docs.forEach((doc) => {
+      mildTotal.push({
+        ...doc.data()
+      })
+      // console.log(mildTotal)
+      const requestWrapper = document.getElementById('mild-display')
+      mildTotal.forEach((snapshot) => {
+        // console.log(snapshot.depression_severity == "Mild")
+        console.log(snapshot)
+
+      if(snapshot.depression_severity == "Mild"){
+        let requestChild = document.createElement('div');
+        requestChild.className = 'rounded-lg shadow-lg p-4 bg-white'
+        requestChild.innerHTML = `
+        <div class="text-xs">
+            <span class="text-gray-600 font-medium">Email</span>
+            <span  class="text-gray-700 font-bold">${snapshot.email}</span>
+        </div>
+        <div class="mt-4 text-xs">
+            <span class="text-gray-600 font-medium">Score</span>
+            <span id="email-mild">${snapshot.score}</span>
+        </div>
+        
+        `
+        requestWrapper.appendChild(requestChild)
+      }
+
+
+    })
+    })
+    
+
+  }).catch((error) => {
+
+  }).finally(() => {
+
+  })
+}
+
+getTotalMild()
+
+function getTotalModerate() {
+  const ref = collection(db, 'users/assessment/assessment/')
+  getDocs(ref).then((snapshot) => {
+    let moderateTotal = [];
+    snapshot.docs.forEach((doc) => {
+      // console.log(doc.data())
+      moderateTotal.push({
+        ...doc.data()
+      })
+      // console.log(mildTotal)
+
+      const requestWrapper = document.getElementById('moderate-display')
+      moderateTotal.forEach((snapshot) => {
+        // console.log(snapshot.depression_severity == "Mild")
+        console.log(snapshot)
+
+      if(snapshot.depression_severity == "Moderate"){
+        let requestChild = document.createElement('div');
+        requestChild.className = 'rounded-lg shadow-lg p-4 bg-white'
+        requestChild.innerHTML = `
+        <div class="text-xs">
+            <span class="text-gray-600 font-medium">Email</span>
+            <span  class="text-gray-700 font-bold">${snapshot.email}</span>
+        </div>
+        <div class="mt-4 text-xs">
+            <span class="text-gray-600 font-medium">Score</span>
+            <span id="email-mild">${snapshot.score}</span>
+        </div>
+        
+        `
+        requestWrapper.appendChild(requestChild)
+      }
+
+
+    })
+    })
+    
+
+  }).catch((error) => {
+
+  }).finally(() => {
+
+  })
+}
+getTotalModerate()
+
+
+function getTotalModeratelySevere() {
+  const ref = collection(db, 'users/assessment/assessment/')
+  getDocs(ref).then((snapshot) => {
+    let moderatelySevereTotal = [];
+    snapshot.docs.forEach((doc) => {
+      // console.log(doc.data())
+      moderatelySevereTotal.push({
+        ...doc.data()
+      })
+      // console.log(mildTotal)
+
+      const requestWrapper = document.getElementById('moderately-severe-display')
+      moderatelySevereTotal.forEach((snapshot) => {
+        // console.log(snapshot.depression_severity == "Mild")
+        console.log(snapshot)
+
+      if(snapshot.depression_severity == "Moderately Severe"){
+        let requestChild = document.createElement('div');
+        requestChild.className = 'rounded-lg shadow-lg p-4 bg-white'
+        requestChild.innerHTML = `
+        <div class="text-xs">
+            <span class="text-gray-600 font-medium">Email</span>
+            <span  class="text-gray-700 font-bold">${snapshot.email}</span>
+        </div>
+        <div class="mt-4 text-xs">
+            <span class="text-gray-600 font-medium">Score</span>
+            <span id="email-mild">${snapshot.score}</span>
+        </div>
+        
+        `
+        requestWrapper.appendChild(requestChild)
+      }
+
+
+    })
+    })
+    
+
+  }).catch((error) => {
+
+  }).finally(() => {
+
+  })
+}
+
+getTotalModeratelySevere()
+
+
+function getTotalSevere() {
+  const ref = collection(db, 'users/assessment/assessment/')
+  getDocs(ref).then((snapshot) => {
+    let severeTotal = [];
+    snapshot.docs.forEach((doc) => {
+      // console.log(doc.data())
+      severeTotal.push({
+        ...doc.data()
+      })
+      // console.log(severeTotal)
+
+      const requestWrapper = document.getElementById('severe-display')
+      severeTotal.forEach((snapshot) => {
+        // console.log(snapshot.depression_severity == "Mild")
+        // console.log(snapshot)
+
+      if(snapshot.depression_severity == "Severe"){
+        let requestChild = document.createElement('div');
+        requestChild.className = 'rounded-lg shadow-lg p-4 bg-white'
+        requestChild.innerHTML = `
+        <div class="text-xs">
+            <span class="text-gray-600 font-medium">Email</span>
+            <span  class="text-gray-700 font-bold">${snapshot.email}</span>
+        </div>
+        <div class="mt-4 text-xs">
+            <span class="text-gray-600 font-medium">Score</span>
+            <span id="email-mild">${snapshot.score}</span>
+        </div>
+        
+        `
+        requestWrapper.appendChild(requestChild)
+      }
+
+
+    })
+    })
+    
+
+  }).catch((error) => {
+
+  }).finally(() => {
+
+  })
+}
+
+getTotalSevere() 
+
