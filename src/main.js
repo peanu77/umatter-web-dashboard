@@ -394,16 +394,6 @@ function getTotalRequest(){
       // </div>
 
       const requestWrapper = document.getElementById('requests')
-      totalReq.forEach((request) => { 
-        // let purposeList = document.createElement('ul')
-        // purposeList.className = 'ul class="list-disc ml-4'
-        // purposeList.innerHTML = `
-        //   <li>
-        //     <span class="text-gray-600 font-medium" id="purpose">${request.purpose}</span>
-        //   </li>`
-        // purposeItem = request.purpose
-        // console.log(purposeItem)
-      })
       
       totalReq.forEach((request) => {
         let requestChild = document.createElement('div');
