@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+        integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+</head>
+
+<div class="flex items-center min-h-screen p-6 bg-gray-800">
+    <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-xl bg-gray-800">
+        <div class="flex flex-col overflow-y-auto md:flex-row">
+            
+            <div class=" bg-white flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+                <div class="w-full">
+                    <h1 class="mb-4 text-xl font-semibold text-gray-700">
+                        Login
+                    </h1>
+                    <label class="mt-10 block text-sm">
+                        <span class="text-gray-700 dark:text-gray-400">Username</span>
+                        <input
+                            class="block w-full mt-1 text-sm outline-4 form-input"
+                            placeholder="Username">
+                    </label>
+                    <label class="block mt-4 text-sm">
+                        <span class="text-gray-700 dark:text-gray-400">Password</span>
+                        <input
+                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            placeholder="***************" type="password">
+                    </label>
+
+                    <!-- You should use a button here, as the anchor is only used for the example  -->
+                    <button type="submit" class="mt-10 block w-full px-4 py-2 text-sm font-medium leading-5 text-center text-white bg-gray-800 border border-transparent rounded-lg ">Log in</button>
+                    
+                   
+
+                   
+                </div>
+            </div>
+            <div class="h-32 md:h-auto md:w-1/2">
+                <img aria-hidden="true" class="object-cover w-full h-full dark:hidden"
+                    src="../assets/img/login-office.jpeg" alt="Office">
+                <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block"
+                    src="../assets/img/login-office-dark.jpeg" alt="Office">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="module" src="../dist/bundle.js"></script>
+</body>
+
+</html>

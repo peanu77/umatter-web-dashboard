@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+        integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+    <div class="flex">
+        <div>
+            <aside class="z-20 hidden  w-64 overflow-y-auto h-full bg-white dark:bg-gray-800 md:block flex-shrink-0">
+
+                <!-- Wrapper -->
+                <div class="py-4 text-gray-500 dark:text-gray-300">
+
+                    <!-- Title  -->
+                    <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">UMatter</a>
+
+                    <!-- Dashboard -->
+                    <ul class="mt-6">
+
+                        <li class="relative px-6 py-3">
+                            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                                href="index.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                </svg>
+                                <span class="ml-4">Dashboard</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!--  -->
+                    <ul class="mt-6">
+
+                        <li class="relative px-6 py-3">
+                            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                                href="index.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                </svg>
+                                <span class="ml-4">Dashboard</span>
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+                    <!-- Donwload Application-->
+                    <ul>
+                        <li class="relative px-6 py-3">
+                            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                                href="https://download1523.mediafire.com/0hd7hyob7lsg/5ttm3rvmeq56oyy/app-release.apk"
+                                download="UMatter">
+                                <div
+                                    class="flex bg-gray-600 shadow-lg rounded-lg w-full py-4 px-2 hover:bg-white hover:text-black ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-4">Download Application</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Cards -->
+        <div class=" w-full mt-6 p-6">
+            <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+
+                <!-- Total Users -->
+                <div class="flex justify-start items-center p-4 bg-white shadow-lg rounded-lg ">
+                    <div class="p-3 mr-4 text-white bg-gray-600 rounded-full ">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="mb-2 text-sm font-bold text-gray-400">
+                            Total Users
+                        </p>
+                        <!-- <p class="text-lg font-semibold text-center" id="moderate">
+                            0
+                        </p> -->
+                    </div>
+                </div>
+               <p id="moderate">
+sd
+               </p>
+            </div>
+
+        </div>
+    </div>
+    <script type="module" src="../dist/bundle.js"></script>
+
+
+</body>
+
+</html>

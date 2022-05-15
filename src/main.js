@@ -47,22 +47,6 @@ let contact = 'Please report to umatter.reboot@gmail.com';
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Initialize 
 initializeApp(firebaseConfig)
 // 
@@ -76,6 +60,8 @@ function getTotalUsers() {
       let totalUsers = [];
       let temp = [];
       let gender = [];
+ 
+
 
       snapshot.docs.forEach((doc) => {
         totalUsers.push({
@@ -86,8 +72,10 @@ function getTotalUsers() {
       for (var i = 0; i < totalUsers.length; i++) {
         temp.push(totalUsers[i]['age'])
         gender.push(totalUsers[i]['gender'])
-
       }
+
+
+      
 
       let female = [];
       let male = [];
@@ -102,12 +90,14 @@ function getTotalUsers() {
           console.log("Please Contact the admin")
         }
       }
-      document.querySelector('#total-users').innerHTML = totalUsers.length;
-      document.querySelector('#total-female').innerHTML = female.length;
-      document.querySelector('#total-male').innerHTML = male.length;
+
+      
+      document.querySelector('#total-users').textContent = totalUsers.length;
+      document.querySelector('#total-female').textContent = female.length;
+      document.querySelector('#total-male').textContent = male.length;
     })
     .catch((error) => {
-      console.log(contact);
+      // console.log(contact);
     })
     .finally(() => {
 
@@ -130,10 +120,10 @@ function getCounselorLen() {
         // console.log(counselor);
 
       })
-      document.querySelector('#total-counselors').innerHTML = counselor.length;
+      document.querySelector('#total-counselors').textContent = counselor.length;
     })
     .catch((error) => {
-      console.log(contact)
+      // console.log(contact)
     })
     .finally(() => {
 
@@ -154,10 +144,12 @@ function getTotalJournalCreated() {
         })
       })
       // console.log(totalJournals)
-      totalJournals = document.querySelector('#total-journals').innerHTML = totalJournals.length;
+      document.querySelector('#total-journals').textContent = totalJournals.length;
+      // console.log(totalJournals)
+      
     })
     .catch((error) => {
-      console.log(contact)
+      // console.log(contact)
     })
     .finally(() => {
 
@@ -196,13 +188,52 @@ function getAssessmentRes() {
         userSelection.push(assessmentRes[i]['user_selection'])
       }
 
+      
+      for (var x = 0; x <= temp.length; x++) {
+        
+        if (temp[x] === 'Mild') {
+          mild.push(temp[x])
+          document.querySelector('#mild').textContent = mild.length
+        } else if (temp[x] === 'Moderate') {
+          moderate.push(temp[x])
+          document.querySelector('#moderate-card').textContent = moderate.length
+        } else if (temp[x] === 'Moderately Severe') {
+          moderately_severe.push(temp[x]);
+          document.querySelector('#moderately-severe').textContent = moderately_severe.length
+        } else if (temp[x] === "Severe") {
+          severe.push(temp[x]);
+          document.querySelector('#severe-depression').textContent = severe.length
+          
+        }
+      }
+      let email = [];
+      // console.log(assessmentRes)
+
+      // for(var l = 0; l <=assessmentRes.length; l++){
+      //   // console.log(assessmentRes)
+      //   if(assessmentRes[l]['depression_severity'] === 'Mild'){
+      //     document.querySelector('#mild').textContent = assessmentRes[l]['email']
+      //   }
+      //   else if(assessmentRes[l]['depression_severity'] === 'Moderate'){
+      //     document.querySelector('#moderate').textContent = assessmentRes[l]['email']
+      //   }
+      //   else if(assessmentRes[l]['depression_severity'] === 'Moderately Severe'){
+      //     document.querySelector('#moderately-severe').textContent = assessmentRes[l]['email']
+      //   }
+      //   else if(assessmentRes[l]['depression_severity'] === 'Severe'){
+      //     document.querySelector('#severe').textContent = assessmentRes[l]['email']
+      //   }
+
+      //   // console.log(assessmentRes[l])
+      // }
+
       // 
       userSelection.map((data) => {
         for (var j = 0; j < data.length; j++) {
           userSelection1.push(data[j])
         }
       })
-      
+
       // 
       for(var n =0; n< userSelection1.length; n++){
         // console.log(userSelection1[n])
@@ -217,7 +248,7 @@ function getAssessmentRes() {
           }
       }
 
-      
+
       
       const assessment_doughnut = document.getElementById('assessment-doughnut').getContext('2d');
       const doughnutChart = new Chart(assessment_doughnut, {
@@ -254,21 +285,7 @@ function getAssessmentRes() {
 
 
 
-      for (var x = 0; x <= temp.length; x++) {
-        if (temp[x] === 'Mild') {
-          mild.push(temp[x])
-          document.querySelector('#mild').innerHTML = mild.length
-        } else if (temp[x] === 'Moderate') {
-          moderate.push(temp[x])
-          document.querySelector('#moderate').innerHTML = moderate.length
-        } else if (temp[x] === 'Moderately Severe') {
-          moderately_severe.push(temp[x]);
-          document.querySelector('#moderately-severe').innerHTML = moderately_severe.length
-        } else if (temp[x] === "Severe") {
-          severe.push(temp[x]);
-          document.querySelector('#severe-depression').innerHTML = severe.length
-        }
-      }
+     
       
       
 
@@ -306,7 +323,7 @@ function getAssessmentRes() {
 
     })
     .catch((error) => {
-      console.log(contact)
+      // console.log(contact)
     })
     .finally(() => {
 
@@ -314,3 +331,50 @@ function getAssessmentRes() {
 }
 
 getAssessmentRes()
+
+
+function getTotalRequest(){
+  const ref = collection(db, 'users/counselling/counselling')
+  getDocs(ref)
+    .then((snapshot) => {
+      let totalReq = [];
+      let emailReq =[];
+      snapshot.docs.forEach((doc) => {
+        totalReq.push({
+          ...doc.data()
+        })
+      })
+      // console.log(totalReq);
+
+      //  for(var i =0; i<=totalReq.length; i++){
+      //   // console.log(totalReq[i]['email'])
+      //   // document.querySelector('#email-request').textContent = totalReq[i]['email'];
+      //   // document.querySelector('#fullname').textContent = totalReq[i]['full_name'];
+      //   // document.querySelector('#home-address').textContent = totalReq[i]['home_address'];
+      //   // document.querySelector('#contact-request').textContent = totalReq[i]['contact'];
+      //   // document.querySelector('#purpose').textContent = totalReq[i]['purpose']['academic'];
+        
+      // }
+
+      // var email_req = document.querySelector('#email-request')
+
+      
+
+      document.querySelector('#total-request').textContent = totalReq.length;
+      document.querySelector('#total-request-card').textContent = totalReq.length;
+      
+     
+      
+
+    })
+    .catch((error) => {
+      // console.log(error)
+      // console.log(contact)
+    })
+    .finally(() => {
+
+    });
+}
+
+
+getTotalRequest() 
