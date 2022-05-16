@@ -457,7 +457,7 @@ function getTotalMild() {
         
         `
         requestWrapper.appendChild(requestChild)
-      }
+      }j
 
 
     })
