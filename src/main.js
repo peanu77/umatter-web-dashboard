@@ -345,19 +345,25 @@ function getTotalRequest() {
           ...doc.data()
         })
       })
-
+      // d = Date();
+      // console.log(d.format(request.created_at, 'dddd, mmmm dS, yyyy, h:MM:ss TT'))
+      // console.log('asd')
+      //         console.log(request.created_at.format('dddd, mmmm dS, yyyy, h:MM:ss TT'))
       const requestWrapper = document.getElementById('requests')
 
       totalReq.forEach((request) => {
         // let purpose = request['purpose'];
 
-        // console.log(request)
-
+        console.log(request.created_at)
         let requestChild = document.createElement('div');
         requestChild.className = 'rounded-lg shadow-lg p-4 bg-white'
         requestChild.innerHTML = `
         <div class="text-xs">
-          <span class="text-gray-600 font-medium">Email</span>
+          <span class="text-gray-600 font-medium">Date Created </span>
+          <span id="email-request" class="font-bold text-gray-400">${request.created_at}</span>
+        </div>
+        <div class="text-xs mt-2">
+          <span class="text-gray-600 font-">Email</span>
           <span id="email-request">${request.email}</span>
         </div>
         <div class="mt-4 text-xs">
@@ -440,7 +446,7 @@ function getTotalMild() {
       const requestWrapper = document.getElementById('mild-display')
       mildTotal.forEach((snapshot) => {
         // console.log(snapshot.depression_severity == "Mild")
-        console.log(snapshot)
+        // console.log(snapshot)
 
       if(snapshot.depression_severity == "Mild"){
         let requestChild = document.createElement('div');
@@ -487,7 +493,7 @@ function getTotalModerate() {
       const requestWrapper = document.getElementById('moderate-display')
       moderateTotal.forEach((snapshot) => {
         // console.log(snapshot.depression_severity == "Mild")
-        console.log(snapshot)
+        // console.log(snapshot)
 
       if(snapshot.depression_severity == "Moderate"){
         let requestChild = document.createElement('div');
@@ -534,7 +540,7 @@ function getTotalModeratelySevere() {
       const requestWrapper = document.getElementById('moderately-severe-display')
       moderatelySevereTotal.forEach((snapshot) => {
         // console.log(snapshot.depression_severity == "Mild")
-        console.log(snapshot)
+        // console.log(snapshot)
 
       if(snapshot.depression_severity == "Moderately Severe"){
         let requestChild = document.createElement('div');
