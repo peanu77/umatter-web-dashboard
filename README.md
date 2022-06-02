@@ -1,6 +1,6 @@
 # UMatter: 
 
-As the counterpart of the Application we as the researchers developed a Web-based Dashboard that may help Health Professionals keep track on degree of conditions of the users who use the application.
+As a counterpart of the Application we developed, we as the researchers developed a Web-based Dashboard that may help Health Professionals keep track of the degree of conditions of the users who use the application and may help to prevent a more severe degree of that condition.
 
 ## Installation
 - Make sure to install Nodejs [Nodejs Installation](https://nodejs.org/en/)
