@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm run watch build watch",
+    "start": "npm run watch build",
     "build": "webpack",
     "buildTailwind": "tailwindcss -i ./src/input.css -o ./css/main.css",
     "watch": "tailwindcss -i ./src/input.css -o ./css/main.css --watch"
