@@ -20,6 +20,8 @@ npx tailwindcss init
 ```bash
 npm start
 ```
+Then open the click on your [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to run the application
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
